@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Run {
     public static void main(String[] args) {
+        ProductManager productManager = new ProductManager();
         Scanner scanner = new Scanner(System.in);
         int choice;
 
@@ -19,12 +20,16 @@ public class Run {
 
             switch (choice) {
                 case 1:
+                    productManager.addProduct();
                     break;
                 case 2:
+                    productManager.displayProducts();
                     break;
                 case 3:
+                    productManager.editProduct();
                     break;
                 case 4:
+                    productManager.deleteProduct();
                     break;
                 case 5:
                     System.exit(0);
