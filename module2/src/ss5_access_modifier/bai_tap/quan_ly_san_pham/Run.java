@@ -1,4 +1,4 @@
-package ss5.bai_tap.quan_ly_san_pham;
+package ss5_access_modifier.bai_tap.quan_ly_san_pham;
 
 import java.util.Scanner;
 

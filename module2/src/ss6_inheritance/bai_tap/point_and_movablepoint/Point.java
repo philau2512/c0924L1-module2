@@ -26,9 +26,10 @@ public class Point {
     public void setX(float x) {
         this.x = x;
     }
-    public String getXY() {
+
+    public Float[] getXY() {
         Float[] xy = {this.x, this.y};
-        return Arrays.toString(xy);
+        return xy;
     }
     public void setXY(float x, float y) {
         this.x = x;

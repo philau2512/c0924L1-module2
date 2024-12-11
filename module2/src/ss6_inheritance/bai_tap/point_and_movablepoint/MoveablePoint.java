@@ -39,8 +39,9 @@ public class MoveablePoint extends Point{
         this.ySpeed = ySpeed;
     }
 
-    public String getSpeed() {
-        return "(" + this.xSpeed + "," + this.ySpeed + ")" + ",speed=("+this.xSpeed+","+this.ySpeed+")";
+    public Float[] getSpeed() {
+        Float[] speed = {this.xSpeed, this.ySpeed};
+        return speed;
     }
 
     public void move() {
