@@ -1,7 +1,6 @@
 package ss11_stack.bai_tap.dao_nguoc_phan_tu;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class Main {

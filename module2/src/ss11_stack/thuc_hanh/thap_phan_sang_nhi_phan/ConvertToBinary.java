@@ -1,4 +1,4 @@
-package ss11_stack.bai_tap.thap_phan_sang_nhi_phan;
+package ss11_stack.thuc_hanh.thap_phan_sang_nhi_phan;
 
 import java.util.Stack;
 
