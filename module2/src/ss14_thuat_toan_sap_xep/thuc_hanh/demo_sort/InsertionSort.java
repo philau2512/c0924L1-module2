@@ -5,15 +5,15 @@ public class InsertionSort {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
             int currentElement = arr[i]; // Lấy phần tử hiện tại
-            int j = i - 1;
+            int j = i;
 
             // Di chuyển các phần tử lớn hơn `key` sang phải
-            while (j >= 0 && arr[j] > currentElement) {
-                arr[j + 1] = arr[j];
+            while (j > 0 && arr[j-1] > currentElement) {
+                arr[j] = arr[j-1];
                 j--;
             }
             // Chèn phần tử `currentElement` vào đúng vị trí
-            arr[j + 1] = currentElement;
+            arr[j] = currentElement;
         }
     }
 
