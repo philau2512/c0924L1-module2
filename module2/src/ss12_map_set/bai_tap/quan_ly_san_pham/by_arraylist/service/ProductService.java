@@ -38,7 +38,7 @@ public class ProductService implements IProductService {
     public void updateProduct(int id, String newName) {
         for (Product product : productsList) {
             if (product.getId() == id) {
-                product.setName(newName); // Giả sử Product có phương thức setName()
+                product.setName(newName);
                 System.out.println("✅ Cập nhật sản phẩm có id: " + id + " thành công");
                 return;
             }
