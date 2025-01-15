@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReadAndWriteToCsv {
-    public static void WriteToCsv(String pathFile, String content, boolean isAppend) {
+    public static void WriteToCsv(String pathFile, List<String> contentList, boolean isAppend) {
         File file = new File(pathFile);
         FileWriter fileWriter = null;
         BufferedWriter bufferedWriter = null;
@@ -13,8 +13,12 @@ public class ReadAndWriteToCsv {
         try {
             fileWriter = new FileWriter(file, isAppend);
             bufferedWriter = new BufferedWriter(fileWriter);
-            bufferedWriter.write(content);
-            bufferedWriter.newLine();
+            for (String line : contentList) {
+                bufferedWriter.write(line);
+                bufferedWriter.newLine();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File Not Found");
         } catch (IOException e) {
             System.out.println("Error in writeToCsv: " + e.getMessage());
         } finally {
