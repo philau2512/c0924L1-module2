@@ -3,13 +3,14 @@ package quan_ly_phuong_tien_giao_thong.controller;
 import quan_ly_phuong_tien_giao_thong.model.Car;
 import quan_ly_phuong_tien_giao_thong.model.Motorbike;
 import quan_ly_phuong_tien_giao_thong.model.Truck;
-import quan_ly_phuong_tien_giao_thong.service.IVehicleService;
-import quan_ly_phuong_tien_giao_thong.service.VehicleService;
+import quan_ly_phuong_tien_giao_thong.service.*;
 
 import java.util.Scanner;
 
 public class VehicleController implements IVehicleService {
-    VehicleService vehicleService = new VehicleService();
+    CarService carService = new CarService();
+    TruckService truckService = new TruckService();
+    MotobikeService motobikeService = new MotobikeService();
 
     Scanner scanner = new Scanner(System.in);
 
@@ -24,13 +25,13 @@ public class VehicleController implements IVehicleService {
         int choice = Integer.parseInt(scanner.nextLine());
         switch (choice) {
             case 1:
-                vehicleService.addTruck();
+                truckService.addTruck();
                 break;
             case 2:
-                vehicleService.addCar();
+                carService.addCar();
                 break;
             case 3:
-                vehicleService.addMotorbike();
+                motobikeService.addMotorbike();
                 break;
             case 4:
                 return;
@@ -52,13 +53,13 @@ public class VehicleController implements IVehicleService {
 
         switch (choice) {
             case 1:
-                vehicleService.displayTruck();
+                truckService.displayTruck();
                 break;
             case 2:
-                vehicleService.displayCar();
+                carService.displayCar();
                 break;
             case 3:
-                vehicleService.displayMotorbike();
+                motobikeService.displayMotorbike();
                 break;
             case 4:
                 return;
@@ -82,12 +83,12 @@ public class VehicleController implements IVehicleService {
             case 1:
                 System.out.print("Nhập biển số xe tải cần xóa: ");
                 String licenseTruckToDelete = scanner.nextLine();
-                Truck truckToDelete = vehicleService.getTruckByLicensePlate(licenseTruckToDelete);
+                Truck truckToDelete = truckService.getTruckByLicensePlate(licenseTruckToDelete);
                 if (truckToDelete != null) {
                     System.out.print("Bạn có chắc xóa không ? (y/n): ");
                     String confirm = scanner.nextLine();
                     if (confirm.equals("y")) {
-                        if (vehicleService.deleteTruck(licenseTruckToDelete)) {
+                        if (truckService.deleteTruck(licenseTruckToDelete)) {
                             System.out.println("✅ Thành công - Xóa xe tải mang biển số: " + licenseTruckToDelete);
                         } else {
                             System.out.println("❌ Thất bại khi xóa xe tải với biển số: " + licenseTruckToDelete);
@@ -104,12 +105,12 @@ public class VehicleController implements IVehicleService {
             case 2:
                 System.out.print("Nhập biển số xe ô tô cần xóa: ");
                 String licenseCarToDelete = scanner.nextLine();
-                Car carToDelete = vehicleService.getCarByLicensePlate(licenseCarToDelete);
+                Car carToDelete = carService.getCarByLicensePlate(licenseCarToDelete);
                 if (carToDelete != null) {
                     System.out.print("Bạn có chắc xóa không ? (y/n): ");
                     String confirm = scanner.nextLine();
                     if (confirm.equals("y")) {
-                        if (vehicleService.deleteCar(licenseCarToDelete)) {
+                        if (carService.deleteCar(licenseCarToDelete)) {
                             System.out.println("✅ Thành công - Xóa xe ô tô mang biển số: " + licenseCarToDelete);
                         } else {
                             System.out.println("❌ Thất bại khi xóa xe ô tô với biển số: " + licenseCarToDelete);
@@ -126,12 +127,12 @@ public class VehicleController implements IVehicleService {
             case 3:
                 System.out.print("Nhập biển số xe mô tô cần xóa: ");
                 String licenseMotoToDelete = scanner.nextLine();
-                Motorbike MotoToDelete = vehicleService.getMotorbikeByLicensePlate(licenseMotoToDelete);
+                Motorbike MotoToDelete = motobikeService.getMotorbikeByLicensePlate(licenseMotoToDelete);
                 if (MotoToDelete != null) {
                     System.out.print("Bạn có chắc xóa không ? (y/n): ");
                     String confirm = scanner.nextLine();
                     if (confirm.equals("y")) {
-                        if (vehicleService.deleteMotorbike(licenseMotoToDelete)) {
+                        if (motobikeService.deleteMotorbike(licenseMotoToDelete)) {
                             System.out.println("✅ Thành công - Xóa xe mô tô mang biển số: " + licenseMotoToDelete);
                         } else {
                             System.out.println("❌ Thất bại khi xóa xe mô tô với biển số: " + licenseMotoToDelete);
