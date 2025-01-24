@@ -72,9 +72,6 @@ public class ContactController {
                 case 4:
                     System.out.print("Nhập số phone của danh bạ cần xóa: ");
                     String phoneNumberToDelete = scanner.nextLine();
-                    if (!phoneNumberToDelete.matches("\\d{10}")) {
-                        throw new InvalidInputException("Số điện thoại không hợp lệ!");
-                    }
                     boolean isDeleted = contactService.deleteContactByPhone(phoneNumberToDelete);
                     if (isDeleted) {
                         System.out.println("✅ Xóa danh bạ có phone: " + phoneNumberToDelete + " thành công");
