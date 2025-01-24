@@ -7,6 +7,7 @@ public class BubbleSort {
         for (int i = 0; i < n - 1; i++) {
             // Biến kiểm tra nếu không có hoán đổi nào
             boolean swapped = false;
+            System.out.println("✔ Bắt đầu sort lần thứ : " + i);
             // So sánh từng cặp phần tử liền kề
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
@@ -15,6 +16,7 @@ public class BubbleSort {
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
                     swapped = true;
+                    System.out.println("Hoán đổi: " + arr[j] + " với: " + arr[j + 1]);
                 }
             }
             // Nếu không có hoán đổi nào trong vòng lặp, thoát ra sớm
@@ -23,11 +25,12 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 34, 25, 12, 22, 11, 90};
+        int[] arr = {1, 2, 4, 3};
         System.out.println("Mảng trước khi sắp xếp:");
         for (int num : arr) {
             System.out.print(num + " ");
         }
+        System.out.println();
 
         bubbleSort(arr);
 

@@ -99,7 +99,7 @@ public class VehicleController implements IVehicleService {
                         return;
                     }
                 } else {
-                    System.out.println("❌ Không tìm thấy xe tải với biển số: " + licenseTruckToDelete);
+                    throw new VehicleNotFound("❌ Không tìm thấy xe tải với biển số: " + licenseTruckToDelete);
                 }
                 break;
             case 2:
